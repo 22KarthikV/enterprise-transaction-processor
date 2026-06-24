@@ -1,6 +1,10 @@
 spring:
   application:
     name: transaction-service
+  datasource:
+    url: jdbc:postgresql://localhost:${POSTGRES_PORT:5432}/${POSTGRES_DB:transaction_db}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:changeme}
 
 server:
   port: 8080
