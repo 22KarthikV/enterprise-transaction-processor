@@ -14,3 +14,8 @@ spring:
 
 server:
   port: 8080
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:local-dev-jwt-secret-change-in-prod-please-use-a-long-random-value}
+    issuer: enterprise-transaction-processor

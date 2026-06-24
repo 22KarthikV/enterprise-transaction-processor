@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.transactionprocessor.transaction.domain.TransactionStatus;
 import com.transactionprocessor.transaction.dto.TransactionResponse;
+import com.transactionprocessor.transaction.security.JwtTokenValidator;
 import com.transactionprocessor.transaction.service.TransactionNotFoundException;
 import com.transactionprocessor.transaction.service.TransactionService;
 import java.math.BigDecimal;
@@ -30,6 +31,10 @@ class TransactionControllerTest {
   @Autowired private MockMvc mockMvc;
 
   @MockBean private TransactionService transactionService;
+
+  // Satisfies JwtAuthenticationFilter's constructor during context startup; the filter
+  // itself never runs here since addFilters = false.
+  @MockBean private JwtTokenValidator jwtTokenValidator;
 
   @Test
   void postValidTransactionReturns202WithId() throws Exception {
