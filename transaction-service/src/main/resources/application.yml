@@ -5,6 +5,12 @@ spring:
     url: jdbc:postgresql://localhost:${POSTGRES_PORT:5432}/${POSTGRES_DB:transaction_db}
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:changeme}
+  flyway:
+    enabled: true
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
 
 server:
   port: 8080
