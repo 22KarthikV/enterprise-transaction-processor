@@ -9,4 +9,4 @@ public record CreateTransactionRequest(
     @NotBlank String senderAccount,
     @NotBlank String recipientAccount,
     @NotNull @Positive BigDecimal amount,
-    @NotBlank String currency) {}
+    @NotBlank @ValidCurrency String currency) {}
